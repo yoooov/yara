@@ -10,6 +10,7 @@ MODULE(dotnet)
 
 #ifdef CUCKOO_MODULE
 MODULE(cuckoo)
+MODULE(r2)
 #endif
 
 #ifdef MAGIC_MODULE
@@ -19,3 +20,5 @@ MODULE(magic)
 #ifdef HASH_MODULE
 MODULE(hash)
 #endif
+
+MODULE(demo)

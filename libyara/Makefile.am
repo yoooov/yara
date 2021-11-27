@@ -7,6 +7,7 @@ MODULES += modules/time.c
 
 if CUCKOO_MODULE
 MODULES += modules/cuckoo.c
+MODULES += modules/r2.c
 endif
 
 if MAGIC_MODULE
@@ -27,12 +28,16 @@ MODULES += modules/pe_utils.c
 #
 # Add your modules here:
 #
-# MODULES += modules/yourmodule.c
-#
+
+MODULES += modules/demo.c
 
 AM_YFLAGS=-d
 
 AM_CFLAGS=-Wall -Wno-deprecated-declarations -std=gnu99 -I$(srcdir)/include
+
+# radare2 module
+AM_CFLAGS+=@DOLLAR_SIGN@(shell pkg-config --cflags r_socket)
+LIBS += @DOLLAR_SIGN@(shell pkg-config --libs r_socket)
 
 if DEBUG
 AM_CFLAGS+=-g
@@ -174,3 +179,6 @@ endif
 
 pkgconfigdir = $(libdir)/pkgconfig
 nodist_pkgconfig_DATA = yara.pc
+
+AM_CFLAGS += @DOLLAR_SIGN@(shell pkg-config --cflags r_socket)
+LIBS += @DOLLAR_SIGN@(shell pkg-config --libs r_socket)

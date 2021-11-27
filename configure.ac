@@ -240,4 +240,7 @@ AC_CONFIG_FILES([Makefile])
 AC_CONFIG_FILES([libyara/Makefile])
 AC_CONFIG_FILES([libyara/yara.pc])
 
+# radare2 module
+AC_SUBST([DOLLAR_SIGN],[$])
+
 AC_OUTPUT
